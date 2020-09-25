@@ -1,0 +1,17 @@
+{
+    "name": "screepsScript",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "compile": "babel src --out-dir dist"
+    },
+    "dependencies": {
+        "@babel/polyfill": "^7.11.5"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.11.5",
+        "@babel/cli": "^7.11.5",
+        "@babel/node": "^7.10.5",
+        "@babel/preset-env": "^7.11.5"
+    }
+}
