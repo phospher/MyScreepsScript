@@ -10,7 +10,9 @@ export default {
         }
 
         if (creep.memory.building) {
-            const repairTargets = _.filter(creep.room.find(FIND_MY_STRUCTURES), item => item.hits < item.hitsMax / 3);
+            const repairTargets = creep.room.find(FIND_MY_STRUCTURES, {
+                filter: item => item.hits < item.hitsMax / 3
+            });
             if (repairTargets.length) {
                 if (creep.repair(repairTargets[0]) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(repairTargets[0], { visualizePathStyle: { stroke: '#ffffff' } });
