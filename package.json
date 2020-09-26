@@ -2,6 +2,10 @@
     "name": "screepsScript",
     "version": "1.0.0",
     "private": true,
+    "author": {
+        "name": "phospher",
+        "email": "phospher@qq.com"
+    },
     "scripts": {
         "compile": "babel src --out-dir dist"
     },
