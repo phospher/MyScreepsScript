@@ -4,7 +4,7 @@ export default {
         if (spawn.energy >= spawn.energyCapacity) {
             const targets = _.filter(Game.creeps, value => value.memory.role === role);
             if (!targets || targets.length < count) {
-                const result = spawn.spawnCreep(body, role + Game.time, { memory: { role: role } });
+                const result = spawn.spawnCreep(body, role + Game.time, { memory: { role: role, tag: targets.length } });
                 if (result == 0) {
                     console.log("create " + role + " success");
                 } else {

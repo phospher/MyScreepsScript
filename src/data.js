@@ -8,13 +8,13 @@ export default {
         },
         {
             role: "upgrader",
-            count: 5,
+            count: 18,
             spawnName: "Spawn1",
             body: [WORK, CARRY, MOVE, MOVE]
         },
         {
             role: "builder",
-            count: 5,
+            count: 10,
             spawnName: "Spawn1",
             body: [WORK, CARRY, MOVE, MOVE]
         }

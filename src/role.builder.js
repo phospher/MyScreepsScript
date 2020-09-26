@@ -10,8 +10,10 @@ export default {
         }
 
         if (creep.memory.building) {
-            const repairTargets = creep.room.find(FIND_MY_STRUCTURES, {
-                filter: item => item.hits < item.hitsMax / 3
+            const repairTargets = creep.room.find(FIND_STRUCTURES, {
+                filter: (item) => {
+                    return item.hits < item.hitsMax / 3;
+                }
             });
             if (repairTargets.length) {
                 if (creep.repair(repairTargets[0]) == ERR_NOT_IN_RANGE) {
@@ -28,8 +30,9 @@ export default {
         }
         else {
             const sources = creep.room.find(FIND_SOURCES);
-            if (creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], { visualizePathStyle: { stroke: '#ffaa00' } });
+            const sourceIndex = (creep.memory.tag ?? 0) % 2;
+            if (creep.harvest(sources[sourceIndex]) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(sources[sourceIndex], { visualizePathStyle: { stroke: '#ffaa00' } });
             }
         }
     }
