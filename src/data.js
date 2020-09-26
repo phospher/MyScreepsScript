@@ -2,13 +2,13 @@ export default {
     CREEPS: [
         {
             role: "harvester",
-            count: 2,
+            count: 5,
             spawnName: "Spawn1",
             body: [WORK, CARRY, MOVE, MOVE]
         },
         {
             role: "upgrader",
-            count: 18,
+            count: 10,
             spawnName: "Spawn1",
             body: [WORK, CARRY, MOVE, MOVE]
         },

@@ -15,16 +15,14 @@ export default {
                     return item.hits < item.hitsMax / 3;
                 }
             });
-            if (repairTargets.length) {
-                if (creep.repair(repairTargets[0]) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(repairTargets[0], { visualizePathStyle: { stroke: '#ffffff' } });
-                }
-            } else {
-                const targets = creep.room.find(FIND_CONSTRUCTION_SITES);
-                if (targets.length) {
-                    if (creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(targets[0], { visualizePathStyle: { stroke: '#ffffff' } });
-                    }
+            if (creep.repair(repairTargets[0]) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(repairTargets[0], { visualizePathStyle: { stroke: '#ffffff' } });
+            }
+
+            const targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+            if (targets.length) {
+                if (creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(targets[0], { visualizePathStyle: { stroke: '#ffffff' } });
                 }
             }
         }
