@@ -18,7 +18,8 @@ export default {
 
     createBatch(creeps) {
         if (creeps) {
-            for (let i = 0; i < creeps.length; i++) {
+            let i = 0;
+            for (i = 0; i < creeps.length; i++) {
                 const item = creeps[i];
                 const result = this.create(item.role, item.count, item.spawnName, item.body);
                 if (result == 0) {

@@ -4,19 +4,19 @@ export default {
             role: "harvester",
             count: 2,
             spawnName: "Spawn1",
-            body: [WORK, CARRY, MOVE, MOVE]
+            body: [WORK, CARRY, MOVE,WORK]
         },
         {
             role: "upgrader",
-            count: 2,
+            count: 5,
             spawnName: "Spawn1",
-            body: [WORK, CARRY, MOVE]
+            body: [WORK, CARRY, MOVE,WORK]
         },
         {
             role: "builder",
-            count: 2,
+            count: 5,
             spawnName: "Spawn1",
-            body: [WORK, CARRY, MOVE, MOVE]
+            body: [WORK, CARRY, MOVE,WORK]
         }
     ]
 }
