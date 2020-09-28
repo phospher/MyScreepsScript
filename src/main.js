@@ -9,6 +9,10 @@ import tower from "./tower";
 
 export function loop() {
 
+    if (Game.spawns["Spawn1"].room.controller.safeModeAvailable) {
+        Game.spawns["Spawn1"].room.controller.activateSafeMode();
+    }
+
     createRole.createBatch(data.CREEPS);
 
     for (let roomName in Game.rooms) {
