@@ -34,5 +34,9 @@ export default {
                 creep.moveTo(sources[sourceIndex], { visualizePathStyle: { stroke: '#ffaa00' } });
             }
         }
+    },
+
+    create(body, role, targets) {
+        return spawn.spawnCreep(body, role + Game.time, { memory: { role: role, tag: targets.length } })
     }
 }
