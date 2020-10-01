@@ -12,19 +12,17 @@ const ROLE_MODULES = {
 export default {
     create(role, count, spawnName, body) {
         const spawn = Game.spawns[spawnName];
-        if (spawn.energy >= spawn.energyCapacity) {
-            const targets = _.filter(Game.creeps, value => value.memory.role === role);
-            if (!targets || targets.length < count) {
-                const roleModule = ROLE_MODULES[role];
-                if (roleModule) {
-                    const result = roleModule.create(body, role, targets);
-                    if (result == 0) {
-                        console.log("create " + role + " success");
-                    } else {
-                        console.log("create " + role + "fail: " + result);
-                    }
-                    return result;
+        const targets = _.filter(Game.creeps, value => value.memory.role === role);
+        if (!targets || targets.length < count) {
+            const roleModule = ROLE_MODULES[role];
+            if (roleModule) {
+                const result = roleModule.create(body, role, targets, spawn);
+                if (result == 0) {
+                    console.log("create " + role + " success");
+                } else if (result != ERR_NOT_ENOUGH_ENERGY && result != ERR_BUSY) {
+                    console.log("create " + role + "fail: " + result);
                 }
+                return result;
             }
         }
         return -1;

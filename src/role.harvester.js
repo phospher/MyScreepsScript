@@ -1,4 +1,4 @@
-const STRUCTURE_TYPE_PRIORITY = [STRUCTURE_TOWER, STRUCTURE_EXTENSION, STRUCTURE_SPAWN];
+const STRUCTURE_TYPE_PRIORITY = [STRUCTURE_TOWER, STRUCTURE_SPAWN, STRUCTURE_EXTENSION];
 
 export default {
     run(creep) {
@@ -37,9 +37,9 @@ export default {
         }
     },
 
-    create(body, role, targets) {
+    create(body, role, targets, spawn) {
         const harvesters = _.filter(Game.creeps, i => i.memory.role == "harvester");
-        const main = harvesters.length % STRUCTURE_TYPE_PRIORITY;
+        const main = harvesters.length % STRUCTURE_TYPE_PRIORITY.length;
         return spawn.spawnCreep(body, role + Game.time, { memory: { role: role, tag: targets.length, main: main } });
     }
 }
