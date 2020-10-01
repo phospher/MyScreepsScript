@@ -1,3 +1,5 @@
+import { getSource } from "./utils";
+
 export default {
     run(creep) {
         if (creep.memory.upgrading && creep.store[RESOURCE_ENERGY] == 0) {
@@ -15,10 +17,9 @@ export default {
             }
         }
         else {
-            const sources = creep.room.find(FIND_SOURCES);
-            const sourceIndex = (creep.memory.tag ?? 1) % 2;
-            if (creep.harvest(sources[sourceIndex]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[sourceIndex], { visualizePathStyle: { stroke: '#ffaa00' } });
+            const source = getSource(creep, 1);
+            if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(source, { visualizePathStyle: { stroke: '#ffaa00' } });
             }
         }
     },

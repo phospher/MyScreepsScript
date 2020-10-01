@@ -1,11 +1,13 @@
+import { getSource } from "./utils";
+
 const STRUCTURE_TYPE_PRIORITY = [STRUCTURE_TOWER, STRUCTURE_SPAWN, STRUCTURE_EXTENSION];
 
 export default {
     run(creep) {
         if (creep.store.getFreeCapacity() > 0) {
-            const sources = creep.room.find(FIND_SOURCES);
-            if (creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], { visualizePathStyle: { stroke: '#ffaa00' } });
+            const source = getSource(creep, 1);
+            if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(source, { visualizePathStyle: { stroke: '#ffaa00' } });
             }
         }
         else {
