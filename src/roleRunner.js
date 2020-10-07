@@ -1,13 +1,13 @@
 export default class RoleRunner {
 
     constructor() {
-        this.memoryInit = null;
+        this.initMemory = null;
         this.commandList = [];
     }
 
     run(creep) {
-        if (this.memoryInit && _.isFunction(this.memoryInit)) {
-            this.memoryInit(creep);
+        if (this.initMemory && _.isFunction(this.initMemory)) {
+            this.initMemory(creep);
         }
 
         if (this.commandList && _.isArray(this.commandList)) {

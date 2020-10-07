@@ -41,6 +41,6 @@ export default {
     },
 
     create(body, role, targets, spawn) {
-        return spawn.spawnCreep(body, role + Game.time, { memory: { role: role, tag: Game.time } });
+        return spawn.spawnCreep(body, role + Game.time, { memory: { role: role, tag: Math.round(Game.time / 100) } });
     }
 }

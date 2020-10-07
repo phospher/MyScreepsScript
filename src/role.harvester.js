@@ -62,6 +62,6 @@ export default {
     create(body, role, targets, spawn) {
         const harvesters = _.filter(Game.creeps, i => i.memory.role == "harvester");
         const main = harvesters.length % STRUCTURE_TYPE_PRIORITY.length;
-        return spawn.spawnCreep(body, role + Game.time, { memory: { role: role, tag: Game.time, main: main } });
+        return spawn.spawnCreep(body, role + Game.time, { memory: { role: role, tag: Math.round(Game.time / 100), main: main } });
     }
 }
