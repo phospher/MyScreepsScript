@@ -1,12 +1,4 @@
-import builder from "./role.builder";
-import harvester from "./role.harvester";
-import upgrader from "./role.upgrader";
-
-const ROLE_MODULES = {
-    "builder": builder,
-    "harvester": harvester,
-    "upgrader": upgrader
-}
+import data from "./data";
 
 
 export default {
@@ -14,7 +6,7 @@ export default {
         const spawn = Game.spawns[spawnName];
         const targets = _.filter(Game.creeps, value => value.memory.role === role);
         if (!targets || targets.length < count) {
-            const roleModule = ROLE_MODULES[role];
+            const roleModule = data.ROLE_MODULES[role];
             if (roleModule) {
                 const result = roleModule.create(body, role, targets, spawn);
                 if (result == 0) {
