@@ -1,5 +1,6 @@
 import { getSource } from "./utils";
 import RoleRunner from "./roleRunner";
+import { attack } from "./role.common";
 
 function initMemory(creep) {
     if (creep.memory.upgrading && creep.store[RESOURCE_ENERGY] == 0) {
@@ -34,7 +35,7 @@ function harvest(creep) {
 export default {
     run(creep) {
         const roleRunner = new RoleRunner();
-        const commandList = [upgradeController, harvest];
+        const commandList = [attack, upgradeController, harvest];
         roleRunner.commandList.push(...commandList);
         roleRunner.initMemory = initMemory;
         roleRunner.run(creep);

@@ -1,5 +1,6 @@
 import { getSource } from "./utils";
 import RoleRunner from "./roleRunner";
+import { attack } from "./role.common";
 
 const STRUCTURE_TYPE_PRIORITY = [STRUCTURE_SPAWN, STRUCTURE_TOWER, STRUCTURE_EXTENSION, STRUCTURE_CONTAINER];
 
@@ -54,7 +55,7 @@ function toOtherStructure(creep) {
 export default {
     run(creep) {
         const roleRunner = new RoleRunner();
-        const commandList = [harvest, toMainStructure, toOtherStructure]
+        const commandList = [attack, harvest, toMainStructure, toOtherStructure]
         roleRunner.commandList.push(...commandList);
         roleRunner.run(creep);
     },
